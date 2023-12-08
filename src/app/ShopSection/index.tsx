@@ -67,7 +67,7 @@ export default function ShopSection() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       <div className="bg-black h-[100px] flex flex-row justify-evenly text-white items-center">
         <div className="text-center grow">
           <p>PRODUCT</p>
