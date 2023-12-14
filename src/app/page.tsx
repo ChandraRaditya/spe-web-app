@@ -1,6 +1,6 @@
 import Image from "next/image";
-import TopSection from "./TopSection";
-import ShopSection from "./ShopSection";
+import TopSection from "./component/TopSection";
+import ShopSection from "./component/ShopSection";
 
 export default function Home() {
   return (

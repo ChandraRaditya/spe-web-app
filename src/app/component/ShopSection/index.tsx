@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { getData } from "../Services";
+import { getData } from "../../Services";
 
 export default function ShopSection() {
   const [data, setData] = useState<any>([]);
@@ -36,32 +36,16 @@ export default function ShopSection() {
 
   const onChange = (input: any, code: any) => {
     const stock = input.target.value;
-    let item: any;
     const newData = data.map((val: any) => {
       if (val.code == code) {
-        return {
-          quantity: Number(stock),
-          code: val.code,
-          name: val.name,
-          price: val.price,
-          image: val.image,
-          stock: val.stock,
-          stockPrice: val.price * Number(stock),
-        };
+        const newObj = { ...val, quantity: Number(stock), stockPrice: val.price * Number(stock) }
+        return newObj
       }
 
-      return {
-        quantity: val.quantity,
-        code: val.code,
-        name: val.name,
-        price: val.price,
-        image: val.image,
-        stock: val.stock,
-        stockPrice: val.stockPrice,
-      };
-    });
-
-    setData(newData);
+      return val
+    })
+  
+    setData(newData)
 
     calculateTotalPrice(newData);
   };
